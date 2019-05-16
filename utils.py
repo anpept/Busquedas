@@ -562,10 +562,12 @@ class OrderedList(Queue):
 
     def extend(self, items):
         self.L.extend(items)
-        self.L.sort(key=lambda x: x.path_cost)
+        #self.L.sort(key=lambda x: x.path_cost)
+        self.L.sort(key=lambda x: x.path_cost, reverse=True)
 
     def pop(self):
-        return self.L.pop(0)
+        return self.L.pop()
+        #return self.L.pop(0)
 
     def mostrar(self):
         print (self.L)
@@ -584,10 +586,11 @@ class OrderedListH(Queue):
 
     def extend(self, items):
         self.L.extend(items)
-        self.L.sort(key=lambda x: x.path_cost + self.problem.h(x))
+        #self.L.sort(key=lambda x: x.path_cost + self.problem.h(x))
+        self.L.sort(key=lambda x: x.path_cost + self.problem.h(x), reverse=True)
 
     def pop(self):
-        return self.L.pop(0)
+        return self.L.pop()
 
     def mostrar(self):
         print (self.L)
